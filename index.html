@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <h1>Lista de Tarefas</h1>
+    <table id="table">
+        <caption>Tarefas</caption>
+        <thead id="table_head">
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Responsável</th>
+                <th>Data de Início</th>
+                <th>Data de Término</th>
+                <th>Concluída</th>
+            </tr>
+        </thead>
+        <tbody id="table_body"></tbody>
+    </table>
+    <div id="file_buttons">
+        <button onclick="document.getElementById('fileInput').click()">Importar</button>
+        <input type="file" id="fileInput" onchange="importList(this)" style="display:none">
+        <button onclick="exportList()">Exportar</button>
+        <button onclick="showlog()">Log</button>
+    </div>
+    <br>
+    <h2>Task Manager</h2>
+    <div id="task_manager"> 
+        <div id="create_tasks" class="manage" >
+            <h3>Criar Task</h3>
+            ID: <input type="number" id="id"><br/>
+            Descrição: <input type="text" id="descricao"><br/>
+            Responsável: <input type="text" id="responsavel"><br/>
+            Data de Inicio: <input type="date" id="dataInicio"><br/>
+            Data de Término: <input type="date" id="dataTermino"><br/>
+            Concluída: <input type="checkbox" id="concluida" value="false"><br/>
+            <button onclick="createTask()">Criar Tarefa</button>
+        </div>
+        <div id="edit_tasks" class="manage">
+            <h3>Editar Task</h3>
+            ID: <input type="number" id="edit_id"><br/>
+            Descrição: <input type="text" id="edit_descricao"><br/>
+            Responsável: <input type="text" id="edit_responsavel"><br/>
+            Data de Inicio: <input type="date" id="edit_dataInicio"><br/>
+            Data de Término: <input type="date" id="edit_dataTermino"><br/>
+            Concluída: <input type="checkbox" id="edit_concluida" value="false"><br/>
+            <button onclick="editTask()">Editar Tarefa</button>
+        </div>
+        <div id="delete_tasks">
+            <h3>Excluir Task</h3>
+            ID: <input type="number" id="delete_id"><br/>
+            <br>
+            <button onclick="deleteTask()">Excluir</button>
+            <br>
+            <button onclick="deleteAllTasks()">Excluir tudo</button>
+        </div>
+    </div> 
+</body>
+</html>
